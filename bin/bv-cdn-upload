@@ -65,8 +65,7 @@ const _upload = (index = 0) => {
       console.log('')
       console.table(files)
     }
-    spinner.succeed(`Uploading to ${cdn} CDN : ${(uploaded * 100 / filesLen).toFixed(2)}% ${uploaded} files uploaded, ${failed} files failed`)
-    process.exit(1)
+    return spinner.succeed(`Uploading to ${cdn} CDN : ${(uploaded * 100 / filesLen).toFixed(2)}% ${uploaded} files uploaded, ${failed} files failed`)
   }
 
   const currentFile = files[index]
