@@ -3,6 +3,9 @@
   "version": "0.0.2",
   "description": "",
   "main": "index.js",
+  "keywords": [
+    "bv-cdn-cli"
+  ],
   "directories": {
     "lib": "lib"
   },

@@ -70,7 +70,7 @@ const _upload = (index = 0) => {
 
   const currentFile = files[index]
   const { file } = currentFile
-  spinner.text = `[${index + 1}/${filesLen}] ${file}`
+  spinner.text = `[${index + 1}/${filesLen}] cdn uploading ${file}`
   uploadFile(file.substring(1), file)
     .then(() => {
       ++uploaded
