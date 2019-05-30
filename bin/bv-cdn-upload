@@ -15,7 +15,6 @@ const configPath = path.resolve(program.args[0] || configName)
 // 配置文件不存在
 if (!fs.existsSync(configPath)) {
   logger.error(`Not found ${configPath}, #run $ bv-cdn init`)
-  process.exit(1)
 }
 
 const config = require(configPath)
@@ -24,13 +23,11 @@ const { cdn, glob: { pattern }, info = false } = config
 // cdn配置不存在
 if (!cdn) {
   logger.error(`Config must have a 'cdn' attribute and can not be empty`)
-  process.exit(1)
 }
 
 // 要上传的文件不存在
 if (!pattern) {
   logger.error(`Config must have a 'glob.pattern' attribute and can not be empty`)
-  process.exit(1)
 }
 
 // 不同cdn的上传api
@@ -41,7 +38,6 @@ const upload = {
 // 如果api不存在
 if (!upload) {
   logger.error(`Not supported for ${cdn}`)
-  process.exit(1)
 }
 
 const uploadFile = upload(config)
@@ -52,7 +48,6 @@ let failed = 0
 
 if (!filesLen) {
   logger.error(`No such file, check 'glob.pattern' attribute`)
-  process.exit(1)
 }
 
 const spinner = ora('').start()
